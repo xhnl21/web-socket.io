@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Socket IO</title>
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+
+    <!-- animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-md-6 my-auto">
+          <form id="rlu" class="card card-body rounded-0">
+            <h1 class="h3 mb-5">metodo rider_location_update</h1>
+            <div class="form-group">
+              <label for="rider_id">rider_id</label>
+              <input type="text" class="form-control" id="rider_id" value="1" readonly>
+            </div>            
+            <div class="form-group">
+              <label for="lat">Latitud</label>
+              <input type="text" class="form-control" id="lat" value="2" readonly>
+            </div> 
+            <div class="form-group">
+              <label for="lang">Longitud</label>
+              <input type="text" class="form-control" id="lang" value="3" readonly>
+            </div>                
+            <div class="form-group">
+              <label for="bearing">Bearing</label>
+              <input type="text" class="form-control" id="bearing" value="4" readonly>
+            </div>  
+            <button class="btn btn-dark rounded-0">Send</button>
+          </form>
+        </div>
+        <div class="col-md-6 my-auto">
+          <form id="oscs" class="card card-body rounded-0">        
+            <h1 class="h3 mb-5">metodo order_status_change_server</h1>
+            <textarea name="emitTo" id="emitTo" cols="10" rows="5" class="form-control" readonly>{"emitTo": 1, "eventName":"demo", "msg":"demo2", "aOrder":[{"id": "1"}, {"id": "2"}]}</textarea>
+            <button class="btn btn-dark rounded-0">Send</button>
+          </form>
+          <input id="socketId" type="hidden" name="socketId" value="2" />
+          <input id="device_id" type="hidden" name="device_id" value="3" />
+          <input id="user_id" type="hidden" name="user_id" value="1"/>           
+        </div>
+      </div>
+    </div>    
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./ui.js"></script>
+    <script src="/sockets.js"></script>
+    <script src="/main.js"></script>
+  </body>
+</html>
